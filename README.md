@@ -6,18 +6,25 @@ This is just a free repo to handle emergency data if nothing is left to do so it
 
 1. Introduction & The Core Problem
 State who you are and immediately introduce the flaw in current agricultural storage: warehouse managers rely entirely on visual inspection, meaning by the time rot is seen, the crop is already ruined and infecting others.
+
 ​2. The Biochemical Reality (Smell vs. Sight)
 Explain the core science of your solution. Describe how rotting produce undergoes fermentation and releases invisible ethanol gases (VOCs) 28 to 36 hours before physical decay becomes visible.
+
 ​3. Our Strategic Two-Phase Approach
 Briefly explain that to tackle this complex issue, you divided the project into two stages: Phase 1 for hardware validation (data acquisition) and Phase 2 for software integration (AI prediction).
+
 ​4. Phase 1: The Hardware Edge Node
 Introduce the physical prototype sitting on the table. Explain that it is an Arduino-based node equipped with an MQ-3 gas sensor designed to continuously monitor the localized microclimate for these early-warning gases.
+
 ​5. The Live Demonstration
 Direct their attention to the laptop screen showing the clean baseline data. Perform the live test by introducing the alcohol-based hand sanitizer to the sensor to simulate concentrated crop off-gassing, triggering the red LED, buzzer, and on-screen data spike.
+
 ​6. Validation of Phase 1 Results
 Conclude the demo by stating what it proves: low-cost IoT hardware can successfully and instantly detect the invisible chemical markers of early-stage spoilage in real-time.
+
 ​7. Phase 2: The AI Roadmap
 Detail the immediate next steps. Explain that this verified hardware data will be fed into a Python-based Machine Learning model (Random Forest) to calculate a live "Spoilage Risk Percentage" rather than just a simple alarm.
+
 ​8. Final Impact & Conclusion
 Wrap up with the ultimate real-world benefit. State that this predictive framework will send automated phone alerts to godown managers, giving them a 1.5-day head start to sell or isolate stock, thereby stopping massive food waste and financial loss.
 
