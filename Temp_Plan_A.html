@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Temp Plan A: Hardware Validation</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffffff;
+        color: #333333;
+        margin: 0 auto;
+        padding: 40px;
+        max-width: 900px;
+        line-height: 1.6;
+    }
+    h1 {
+        color: #1b5e20;
+        text-align: center;
+        border-bottom: 3px solid #4caf50;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+    h2 {
+        color: #2e7d32;
+        font-size: 22px;
+        border-bottom: 2px solid #c8e6c9;
+        padding-bottom: 5px;
+        margin-top: 30px;
+    }
+    h3 {
+        color: #388e3c;
+        margin-top: 20px;
+    }
+    ul, ol {
+        padding-left: 25px;
+        margin-bottom: 20px;
+    }
+    li {
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+    strong {
+        color: #1b5e20;
+    }
+    pre {
+        background-color: #f9f9f9;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 13px;
+        border-radius: 4px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+    }
+</style>
+</head>
+<body>
+
+    <h1>Phase 1: Hardware Proof of Concept (Temp Plan A)</h1>
+
+    <h2>1. Setup & Initialization</h2>
+    <ol>
+        <li><strong>Assemble the Circuit:</strong> Wire the MQ-3, LEDs, and Buzzer to the Arduino exactly as detailed in the circuit guide below.</li>
+        <li><strong>Connect Power:</strong> Plug the Arduino into your laptop via the USB cable. <em>Do not disconnect it.</em> The laptop acts as the power supply.</li>
+        <li><strong>Upload Code:</strong> Open the Arduino IDE, paste the Temp Plan A code, select your COM port, and click <strong>Upload</strong>.</li>
+        <li><strong>Initialize the Display:</strong> Click the magnifying glass icon in the top right of the Arduino IDE to open the <strong>Serial Monitor</strong>. Set the baud rate to 9600. You will see "Current Gas Level: [Number]" scrolling on the screen.</li>
+    </ol>
+
+    <h2>2. Live Demonstration Strategy</h2>
+    <ol>
+        <li><strong>The Pitch:</strong> Tell your teacher, <em>"For Phase 1 of our project, we focused on building and validating the data-acquisition node. We needed to prove the core logic—that we can successfully detect invisible ethanol off-gassing before integrating the AI prediction model."</em></li>
+        <li><strong>The Baseline:</strong> Point to the physical circuit. Note that the Green LED is on and the buzzer is silent. Point to the Serial Monitor on your laptop screen to show the normal ambient air readings (usually between 50 and 150).</li>
+        <li><strong>The Trigger:</strong> Take a small piece of tissue with a drop of alcohol-based hand sanitizer (or open a permanent marker) and hold it near the metal mesh of the MQ-3 sensor.</li>
+        <li><strong>The Result:</strong> The numbers on the laptop screen will instantly spike above 300. The Green LED will turn off, the Red LED will light up, and the buzzer will sound. When you pull the sanitizer away, the system will return to the healthy green baseline.</li>
+    </ol>
+
+    <h2>3. Simplified Components & Circuit</h2>
+    
+    <h3>Components</h3>
+    <ul>
+        <li>Arduino Uno R3 & USB Cable</li>
+        <li>MQ-3 Gas Sensor</li>
+        <li>1x Red LED & 1x Green LED (with 2x 220Ω Resistors)</li>
+        <li>1x Active Piezo Buzzer</li>
+        <li>Breadboard & Jumper Wires</li>
+    </ul>
+
+    <h3>Circuit Wiring</h3>
+    <ul>
+        <li><strong>Power:</strong> Arduino 5V to Breadboard (+); Arduino GND to Breadboard (-).</li>
+        <li><strong>MQ-3 Sensor:</strong> VCC to (+), GND to (-), AOUT to <strong>Arduino Analog Pin A0</strong>.</li>
+        <li><strong>Green LED:</strong> Anode to <strong>D6</strong>, cathode through resistor to (-).</li>
+        <li><strong>Red LED:</strong> Anode to <strong>D7</strong>, cathode through resistor to (-).</li>
+        <li><strong>Buzzer:</strong> Positive pin to <strong>D8</strong>, negative pin to (-).</li>
+    </ul>
+
+    <h2>4. Emergency Arduino Code</h2>
+    <pre><code>// Temp Plan A: MQ-3 Sensor Threshold Logic (No DHT11)
+
+const int mq3Pin = A0;
+const int greenLed = 6;
+const int redLed = 7;
+const int buzzerPin = 8;
+
+// Threshold for VOC/Ethanol detection (adjust if needed during testing)
+const int gasThreshold = 300; 
+
+void setup() {
+  // Start serial monitor to show live data on the laptop screen
+  Serial.begin(9600);
+  
+  pinMode(greenLed, OUTPUT);
+  pinMode(redLed, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  // Initial state: LEDs and buzzer off
+  digitalWrite(greenLed, LOW);
+  digitalWrite(redLed, LOW);
+  digitalWrite(buzzerPin, LOW);
+}
+
+void loop() {
+  // Read the analog value from the MQ-3 sensor (0 to 1023)
+  int gasVal = analogRead(mq3Pin);
+  
+  // Print to Serial Monitor for the live presentation
+  Serial.print("Current Gas Level: ");
+  Serial.println(gasVal);
+
+  // Hardware Alert Logic
+  if (gasVal > gasThreshold) {
+    // Alert State: Danger detected
+    digitalWrite(redLed, HIGH);
+    digitalWrite(greenLed, LOW);
+    digitalWrite(buzzerPin, HIGH); 
+  } else {
+    // Normal State: Clean air
+    digitalWrite(redLed, LOW);
+    digitalWrite(greenLed, HIGH);
+    digitalWrite(buzzerPin, LOW);  
+  }
+
+  // Short delay for sensor stability and readable screen scrolling
+  delay(500); 
+}</code></pre>
+
+</body>
+</html>
