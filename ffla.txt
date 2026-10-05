@@ -1,0 +1,327 @@
+NCSC PROJECT LOG BOOK - SEPTEMBER 2026
+THEME: Food, Agriculture and Health
+PROJECT: Predictive IoT Framework for Early Post-Harvest Spoilage Detection
+GROUP LEADER: Adarsh Mishra | CO-INVESTIGATOR: Ranveer
+
+=========================================================
+WEEK 1: PROBLEM IDENTIFICATION & SCIENTIFIC RESEARCH
+=========================================================
+
+Date: 01-Sep-2026 | Time: 11:30 AM - 1:15 PM
+Location: School IT Lab / Library
+Activity: Initial Brainstorming & Theme Selection
+Notes:
+The National Children's Science Congress (NCSC) dates were announced. Sat with Ranveer to finalize our topic under the main theme of "Food, Agriculture and Health". 
+Initial Ideas:
+1. ~~Smart Refrigerator for homes~~ (Crossed out - Too common, not a large scale impact)
+2. Soil moisture sensor for farms (Crossed out - Already done many times)
+3. Food waste in bulk supply chains.
+We pitched idea #3 to our guide teacher, Mrs. Sonika Bohra. She agreed but told us we need a specific problem, not a general one. She said, "Find out exactly WHERE and WHY the food rots before reaching the market."
+Decision: We will focus on bulk storage godowns and wholesale mandis. 
+Action Plan: We need to see the problem with our own eyes. We will plan a field visit this week to local wholesale markets.
+
+[Leave 3 lines for Teacher Signature]
+Date: 02-Sep-2026 | Time: 5:00 PM - 7:00 PM
+Location: Adarsh's Home
+Activity: Field Visit Planning & Questionnaire Design
+Notes:
+Ranveer came over. We used Google Maps to locate major grain and vegetable storage hubs near our area.
+Target Locations:
+
+Kalupur APMC (Wholesale market - very large scale)
+
+Local storage godowns near Naroda Road and Airport Circle.
+We prepared a rough questionnaire for the godown managers to understand their daily struggle.
+[Write these questions roughly]
+Q1. How much food do you lose every month to rotting?
+Q2. How do your workers identify which sack is going bad?
+Q3. What happens if a rotten sack is left unnoticed for 2 days?
+Tomorrow after school, we will take an auto to Kalupur APMC. We need to observe silently before asking questions.
+
+[Leave space for Teacher Signature]
+
+Date: 03-Sep-2026 | Time: 4:00 PM - 7:30 PM
+Location: Kalupur APMC & Naroda Road Godowns
+Activity: Field Visit and Live Problem Identification
+Notes:
+The scale of the Kalupur mandi is massive. Thousands of sacks are stacked on top of each other in poorly ventilated areas.
+Observation 1: The environment is very humid.
+Observation 2: While walking near aisle 4 (potato and onion storage), there was a highly pungent, sweet/sour smell in the air.
+We spoke to a floor supervisor. (He didn't want his name recorded, just called himself 'Bhaiya'). We asked our questions.
+His response: "We lose almost 10-15% of our stock in summers and monsoons. My workers check the sacks by looking at them."
+We watched them work. A worker pulled out a sack from the middle of a huge stack because he saw brown liquid leaking from it. When he opened it, the center was completely mushy and destroyed.
+Critical Realization: The sacks touching the rotten one were also getting wet and starting to rot.
+The core flaw: Visual inspection is failing. The manager relies on human eyes. But by the time a human eye sees the brown liquid or mold, the rot is already in an advanced stage and spreading like a virus to healthy crops.
+
+[Leave space for Teacher Signature]
+
+Date: 05-Sep-2026 | Time: 9:00 AM - 1:00 PM
+Location: Home (Online Research)
+Activity: Deep Dive into the Biology of Decay
+Notes:
+Yesterday's visit changed our perspective. If seeing the rot is too late, how do we catch it earlier?
+Spent 4 hours reading biological research papers on post-harvest crop decay.
+Scientific Findings:
+
+When fresh produce starts to spoil due to trapped heat or moisture, it undergoes Anaerobic Fermentation.
+
+Formula: C6H12O6 (Glucose) -> 2 C2H5OH (Ethanol) + 2 CO2 (Carbon Dioxide) + Heat
+
+The rotting crops release Volatile Organic Compounds (VOCs), primarily ethanol gas.
+THE BREAKTHROUGH: According to research, this chemical off-gassing happens approximately 28 to 36 hours BEFORE any physical black/brown spots appear on the crop's skin.
+This is the hidden window of opportunity!
+
+[Leave space for Teacher Signature]
+
+Date: 06-Sep-2026 | Time: 10:30 AM - 12:30 PM
+Location: School Library
+Activity: Formulating the Technological Solution (Smell vs. Sight)
+Notes:
+Sat with Ranveer to translate the biological facts into a technological concept.
+[Draw a rough mind-map diagram here with pen]
+Center: The Problem (Rotting Food)
+Branch 1: Current Method -> Visual (Cameras/Eyes) -> Fails (Too late)
+Branch 2: New Method -> Chemical (Smell/Sensors) -> Succeeds (Early warning)
+Hypothesis: If we can build an electronic "nose" (a gas sensor) that can constantly smell the air around the storage racks for VOCs, we can predict spoilage a day and a half before it actually ruins the batch.
+We are officially shifting the paradigm from "seeing" to "smelling". We need to find out what kind of electronic sensors can detect ethanol and VOCs in the air.
+
+[Leave space for Teacher Signature]
+
+Date: 07-Sep-2026 | Time: 1:00 PM - 2:00 PM
+Location: School IT Lab
+Activity: Week 1 Wrap-up & Teacher Presentation
+Notes:
+Presented our entire Week 1 findings to Mrs. Sonika Bohra.
+Showed her the biological research on anaerobic fermentation and our hypothesis about using gas sensors instead of cameras.
+She was highly impressed by the "Smell > Sight" concept and the emotional/health angle—that preventing this doesn't just save money, it prevents biological toxins from entering the human food supply plate.
+She gave us the green light to proceed to Week 2.
+Next Week's Goal: Research the hardware components, calculate the exact costs, and figure out the circuitry. We need to find a highly sensitive, cheap gas sensor.
+
+[Leave space for Teacher Signature]
+
+
+
+=========================================================
+WEEK 2: HARDWARE ENGINEERING, COSTING & PROTOTYPING
+=========================================================
+
+Date: 08-Sep-2026 | Time: 5:00 PM - 7:30 PM
+Location: Home (Online Research)
+Activity: Sensor Selection & Bill of Materials (BOM)
+Notes:
+Since we need to detect ethanol (VOCs) from rotting crops, we researched various electronic "noses".
+- MQ-2: Detects smoke/combustible gas (Not good for food)
+- MQ-135: Air quality / CO2 (Too broad)
+- MQ-3: Highly sensitive to alcohol/ethanol vapors. PERFECT for our use case!
+We also decided to add a DHT11 (Temperature & Humidity) sensor because heat accelerates rot. 
+Drafted the Bill of Materials (BOM) to check economic feasibility for Indian mandis.
+- Arduino Uno R3: Rs. 450
+- MQ-3 Gas Sensor: Rs. 120
+- DHT11 Temp/Hum Sensor: Rs. 90
+- Breadboard & Jumper wires: Rs. 150
+- LEDs (Red/Green) + Piezo Buzzer: Rs. 40
+Total Prototype Cost = Rs. 850. 
+This is incredibly cheap! A warehouse manager losing Rs. 10,000 of crops a month can easily afford a Rs. 850 early-warning device. 
+
+[Leave space for Teacher Signature]
+Date: 10-Sep-2026 | Time: 4:30 PM - 6:30 PM
+Location: School ATL Lab
+Activity: Scalability Math (How many sensors are needed?)
+Notes:
+Sat with Ranveer to do the math. If a godown is 5,000 sq ft, how many Rs. 850 sensors do they actually need?
+[Rough scribbles]
+Radius of MQ-3 = 5 meters? (Crossed out - No, in a closed indoor warehouse aisle with stacked sacks, airflow is restricted).
+Let's assume a practical effective radius of 2 to 2.5 meters.
+Area covered = pi * r^2 = 3.14 * (2.2)^2 = approx 15.2 sq meters.
+Converted to feet: 15.2 * 10.76 = ~163 sq ft. Let's round down to a safe 150 sq ft per node.
+A standard 50kg burlap sack takes about 1.5 sq ft of floor/rack space.
+Calculation: 150 sq ft / 1.5 sq ft = 100.
+Conclusion: Just 1 Sensor Node can monitor a dense cluster of 80 to 100 sacks! A massive godown would only need a small network of these, making the ROI (Return on Investment) extremely high.
+
+[Leave space for Teacher Signature]
+
+Date: 12-Sep-2026 | Time: 10:00 AM - 2:00 PM
+Location: School IT Lab
+Activity: Circuit Assembly & The DHT11 Failure
+Notes:
+Bought the components from the electronics market. Started assembling the prototype on the breadboard.
+[Draw a rough pen sketch of an Arduino board connected to an MQ-3 on A0, and DHT11 on D2]
+Wired everything up. Wrote a basic test script to print values to the Serial Monitor.
+MAJOR SETBACK:
+The MQ-3 is reading gas perfectly, but the DHT11 is throwing continuous "NaN" (Not a Number) errors.
+Troubleshooting: Checked VCC and GND. Tried adding a pull-up resistor. Nothing worked.
+Technical flaw discovered: The DHT11 is an extremely slow sensor (requires 2 full seconds between reads). This timing delay is clashing with the fast analog reads we need for the gas sensor. Furthermore, this specific DHT11 module seems to have a burnt internal thermistor.
+
+[Leave space for Teacher Signature]
+
+Date: 13-Sep-2026 | Time: 11:30 AM - 1:00 PM
+Location: School IT Lab
+Activity: Strategic Pivot (Removing the DHT11)
+Notes:
+Discussed the DHT11 failure with Sonika Ma'am. We realized something important: Do we really need the temperature sensor?
+If the biological fact is that ethanol gas (VOC) is the direct byproduct of the rotting fermentation, then the gas level itself is the ultimate indicator. Temperature and humidity are just secondary environmental factors that speed it up.
+Decision: We are removing the DHT11 entirely. It is slowing down our processing loop and complicating the hardware for very little added value.
+By dropping it, we make the edge-node cheaper, faster, and less prone to hardware failure. In the future, if a massive industrial warehouse needs it, we can always integrate advanced robotics or high-end BME280 sensors, but for this MVP (Minimum Viable Product), a single highly-calibrated MQ-3 sensor is superior.
+
+[Leave space for Teacher Signature]
+
+Date: 14-Sep-2026 | Time: 5:00 PM - 8:30 PM
+Location: Home
+Activity: Threshold Calibration & Emergency Coding
+Notes:
+Now that it is a 1-sensor system, the MQ-3 needs to be perfectly calibrated.
+Wrote a clean C++ code for Arduino.
+[Scribble rough logic]
+int gasVal = analogRead(A0);
+if (gasVal > threshold) { trigger buzzer; }
+How do we find the threshold without rotting real vegetables for 4 days?
+Calibration Test:
+
+Measured normal ambient room air: Values fluctuated between 90 and 120. (Baseline ~105).
+
+Took an alcohol-based hand sanitizer (simulates ethanol off-gassing). Placed it 10cm from the sensor.
+
+Values instantly spiked to 650 - 750!
+Math for Threshold:
+Target = Baseline + [ (Spike - Baseline) * 0.35 ] -> 35% buffer to prevent false alarms from floor cleaners.
+Target = 105 + (600 * 0.35) = 105 + 210 = 315.
+Let's round down to 300 for faster early-warning.
+Set const int gasThreshold = 300; in the code.
+Tested it again. The moment the sanitizer gets close, the red LED flashes and the buzzer screams. The hardware Phase 1 is officially successful!
+
+[Leave space for Teacher Signature]
+
+
+
+
+=========================================================
+WEEK 3: FIELD OBSERVATIONS, DATA RECORDING & AI TRAINING
+=========================================================
+
+Date: 16-Sep-2026 | Time: 4:30 PM - 6:00 PM
+Location: School IT Lab
+Activity: The False Alarm Problem & The AI Idea
+Notes:
+Demonstrated the Phase 1 hardware to Sonika Ma'am. The buzzer worked perfectly when we brought the sanitizer close. But Ma'am asked a very smart question: "What if a warehouse worker is just cleaning the floor with phenyl or alcohol? Won't the alarm ring for no reason?"
+She is right. A simple hardware `if (gas > 300)` threshold is blind. It will cause "False Alarms".
+Brainstorming with Ranveer: How do we fix this? 
+The difference between floor cleaner and rotting food is TIME. Floor cleaner spikes the gas for 5 minutes and evaporates. Rotting food causes a *continuous, steady rise* in gas over 24+ hours.
+Decision: We need an Artificial Intelligence (Machine Learning) model. The AI shouldn't just look at the current gas level; it needs to analyze the "Moving Average" (historical trend) to predict real spoilage risk!
+
+[Leave space for Teacher Signature]
+Date: 18-Sep-2026 | Time: 9:00 AM - 1:00 PM
+Location: Asarwa APMC & Shahibaug Cold Storages
+Activity: Field Visits for Real-World AI Variables
+Notes:
+To train an AI, we need to understand how the environment behaves. We visited a local potato cold storage and a grain godown near Asarwa.
+Observations for AI training:
+
+The godowns are closed tightly at night, meaning gas concentration will naturally increase slightly at night even if food is fresh.
+
+We saw workers spraying mild pesticides in the corners.
+Future Scope Ideas (Noticed during visit):
+Because warehouses are so big, installing 100 stationary sensors might get messy with wires. In the future, we could mount this MQ-3 sensor on an automated drone or a small line-following robotic cart that patrols the warehouse aisles! Also, we can add a camera module later so the AI can cross-reference the smell with visual mold. Will add this to our presentation's "Future Scope".
+
+[Leave space for Teacher Signature]
+
+Date: 20-Sep-2026 | Time: 4:00 PM - 8:30 PM
+Location: Home
+Activity: Data Generation Strategy (The Dataset)
+Notes:
+To train our Machine Learning model, we need data. LOTS of data.
+Problem: We do not have 15 days to physically rot a huge sack of potatoes in my room and record the serial monitor every second.
+Solution: Synthetic Data Generation based on our calibration math.
+I wrote a Python script to artificially generate 3,000 rows of godown sensor data.
+[Rough Python Logic scribble]
+gas_raw = random(100, 250) (Normal air)
+gas_trend = moving_average(gas_raw)
+I programmed the script so that if the gas_trend stays high consistently (simulating rotting), the risk_percentage goes up to 85%. If the gas_raw spikes but the trend stays low (simulating a worker cleaning the floor), the risk stays below 15%.
+This ensures our AI is learning the exact real-world physics we observed in the godowns. Saved the dataset as a CSV file.
+
+[Leave space for Teacher Signature]
+
+Date: 22-Sep-2026 | Time: 5:00 PM - 8:00 PM
+Location: Adarsh's Home
+Activity: Training the AI Model (Python)
+Notes:
+Ranveer and I sat down to write the actual AI training code.
+Installed scikit-learn and pandas in VS Code.
+Algorithm Selection:
+1. Linear Regression (Crossed out - Too simple, doesn't capture complex gas spikes)
+2. Decision Tree (Crossed out - Prone to overfitting on sensor noise)
+3. Random Forest Regressor (Perfect! It creates multiple decision trees and averages them out, which ignores random sensor glitches).
+Wrote the train_model.py script. Fed our 3,000 rows of synthetic data into it.
+Code used:
+model = RandomForestRegressor(n_estimators=100, max_depth=10)
+model.fit(X, y)
+joblib.dump(model, 'spoilage_model.pkl')
+Success! The Python script compiled and generated the .pkl model file. Our AI brain is officially built and trained to understand chemical trends.
+
+[Leave space for Teacher Signature]
+
+Date: 23-Sep-2026 | Time: 6:00 PM - 9:00 PM
+Location: Home
+Activity: Software Integration & Live Dashboard Testing
+Notes:
+Now for the hardest part: connecting the live Arduino to the Python AI.
+Wrote dashboard.py. Used the pyserial library to read the Arduino's COM port live.
+[Draw a rough flowchart here with pen: Arduino -> USB Cable -> Python Serial Read -> Moving Average Math -> Random Forest Model -> UI Screen Alert]
+Code logic:
+The script reads the live gas value, calculates the average of the last 8 seconds, and pushes both numbers into ai_model.predict().
+Testing the False Alarm:
+I sprayed a little deodorant near the sensor. The raw gas spiked to 400! But the "Moving Average" stayed low. The AI predicted: "Spoilage Risk: 12% - Healthy". It successfully ignored the false alarm!
+Then, I held an alcohol swab near it for 20 seconds. The moving average climbed. The AI predicted: "Spoilage Risk: 88% - ACTION REQUIRED".
+The system works flawlessly. It thinks exactly like a human warehouse manager, but faster.
+
+[Leave space for Teacher Signature - Week 3 Complete]
+
+
+
+
+
+=========================================================
+WEEK 4: FINAL PRESENTATION PREP & EXHIBITION READINESS
+=========================================================
+
+Date: 26-Sep-2026 | Time: 4:00 PM - 7:00 PM
+Location: Adarsh's Home
+Activity: Preparing the NCSC Physical Charts
+Notes:
+According to the NCSC guidelines, we strictly need 4 physical posters (55 cm x 70 cm drawing sheets). Ranveer and I bought the chart papers and divided the drawing work. 
+Chart 1: Title, Objectives, and Team Details.
+Chart 2: Map of Ahmedabad (highlighting the godown areas we visited like Kalupur and Asarwa).
+Chart 3: The Methodology & Scalability Math (Showed our 150 sq. ft. calculation).
+Chart 4: Results, Conclusion & Solution. 
+[Scribble a rough layout of 4 squares representing the charts]
+Ranveer handled the map and the flowchart drawing since his handwriting on charts is neater. I focused on writing the exact biochemical data (Ethanol VOC release) on Chart 3. 
+
+[Leave space for Teacher Signature]
+Date: 28-Sep-2026 | Time: 5:00 PM - 8:00 PM
+Location: Home
+Activity: PPT Formatting and Presentation Rehearsal
+Notes:
+NCSC allows a maximum of 4-5 slides. Used Gamma software to format our digital presentation.
+Strictly followed our new strategy: We focused Slide 2 on the "Silent Crisis" (Health hazard and food waste) to tackle the emotional and economic impact, not just the technology.
+Rehearsal: NCSC gives only 8 minutes for the oral presentation. As Group Leader, I have to deliver the entire speech.
+Ranveer and I practiced the synchronization.
+
+Minute 1 to 3: I explain the problem while Ranveer points to the physical charts.
+
+Minute 4 to 6: THE DEMO. I plug in the Arduino, Ranveer brings the sanitizer near the MQ-3 sensor, and I show the red UI screen on the laptop.
+Timed my speech using a stopwatch: 7 minutes 45 seconds. Perfect timing.
+
+[Leave space for Teacher Signature]
+
+Date: 29-Sep-2026 | Time: 12:00 PM - 1:30 PM
+Location: School IT Lab
+Activity: Final Prototype Enclosure & Project Wrap-up
+Notes:
+The breadboard circuit was looking a bit messy with loose jumper wires. We found a small transparent plastic box. We placed the Arduino and breadboard inside it, cutting small holes for the USB cable and the MQ-3 sensor mesh to stick out.
+[Draw a rough sketch of a square box with an MQ-3 cylinder sticking out the top]
+Now it looks like a professional industrial IoT edge node, not just a school project.
+Did one final test run of the Python dashboard.py script. The Random Forest AI model loaded perfectly, and the UI is scaling correctly on the laptop screen.
+Presented the final dry-run to Sonika Ma'am. She checked our charts, reviewed this logbook, and gave us the final approval for the exhibition.
+The Predictive IoT Framework is officially complete and ready for the NCSC judges!
+
+[Leave a large space for Final Teacher Signature and School Stamp]
+END OF LOG BOOK
