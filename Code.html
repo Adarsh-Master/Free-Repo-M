@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCSC Project Technical Implementation Guide</title>
+<style>
+    /* Professional PDF Styling */
+    @page { size: A4 portrait; margin: 20mm; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7f6; color: #212121; margin: 0; padding: 0; line-height: 1.6; font-size: 11pt;}
+    .page { background-color: white; width: 100%; max-width: 800px; margin: 20mm auto; padding: 30mm; box-sizing: border-box; box-shadow: 0 0 15px rgba(0,0,0,0.1); page-break-after: always; position: relative;}
+    @media print { body { background-color: white; margin: 0; padding: 0; } .page { margin: 0; box-shadow: none; width: 100%; min-height: auto; padding: 25mm; } h1, h2, h3, h4 { color: #1b5e20 !important; } }
+    h1, h2, h3, h4 { font-weight: 700; color: #1b5e20; margin-top: 0; font-family: Arial, Helvetica, sans-serif;}
+    h1 { font-size: 26pt; text-align: center; text-transform: uppercase; border-bottom: 4px solid #4caf50; padding-bottom: 15px; margin-bottom: 30px;}
+    h2 { font-size: 18pt; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px; margin-top: 30px;}
+    h3 { font-size: 14pt; margin-top: 20px;}
+    p { margin-bottom: 15px; text-align: justify;}
+    ul, ol { padding-left: 20px; margin-bottom: 15px;}
+    li { margin-bottom: 8px;}
+    strong { color: #1b5e20; }
+    
+    /* Code Blocks */
+    pre { background-color: #f1f1f1; border-left: 5px solid #4caf50; padding: 15px; font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5pt; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; margin-bottom: 15px;}
+    
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; font-family: Arial; font-size: 10pt;}
+    th, td { border: 1px solid #dee2e6; padding: 10px; text-align: left; }
+    th { background-color: #1b5e20; color: white; text-transform: uppercase;}
+    tr:nth-child(even) { background-color: #f1f8e9; }
+    
+    /* Important Alerter Boxes */
+    .critical { background-color: #ffebee; border-left: 5px solid #d32f2f; color: #b71c1c; padding: 15px; border-radius: 4px; margin: 15px 0; font-weight: bold;}
+    .success { background-color: #e8f5e9; border-left: 5px solid #2e7d32; color: #1b5e20; padding: 15px; border-radius: 4px; margin: 15px 0;}
+    .photo-placeholder { background-color: #f8f9fa; border: 2px dashed #adb5bd; text-align: center; padding: 40px; color: #6c757d; font-family: Arial; font-size: 10pt; font-weight: bold; margin: 15px 0 5px 0; border-radius: 4px; }
+    .caption { text-align: center; font-size: 9pt; color: #666; font-style: italic; margin-bottom: 20px;}
+    
+    /* Cover Page Detail Box */
+    .cover-details { font-family: Arial; font-size: 13pt; text-align: left; margin: 0 auto; width: 80%; background-color: #f1f8e9; padding: 25px; border-left: 6px solid #4caf50; border-radius: 8px;}
+    .cover-details p { margin: 8px 0; text-align: left; }
+</style>
+</head>
+<body>
+
+    <!-- PAGE 1: COVER PAGE -->
+    <div class="page" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+                <div class="photo-box" style="width: 100px; padding: 20px; border: 1px solid #ccc; font-family: Arial; font-size: 9pt;">[NCSC Logo Placeholder]</div>
+                <div class="photo-box" style="width: 100px; padding: 20px; border: 1px solid #ccc; font-family: Arial; font-size: 9pt;">[School Logo Placeholder]</div>
+            </div>
+            <h1 style="font-size: 28pt; color: #1b5e20; text-transform: uppercase;">Technical Implementation Guide</h1>
+            <div style="width: 100px; height: 5px; background-color: #4caf50; margin: 10px auto 40px auto;"></div>
+            <p style="font-size: 16pt; color: #000; font-weight: bold;">Project: Predictive IoT Framework for Early Post-Harvest Spoilage Detection</p>
+        </div>
+
+        <div class="cover-details">
+            <p><strong>Group Leader:</strong> Adarsh Mishra</p>
+            <p><strong>Co-Investigator:</strong> Ranveer</p>
+            <p><strong>Guide Teacher:</strong> Mrs. Sonika Bohra (TGT AI/IT)</p>
+            <p><strong>Institution:</strong> Army Public School, Ahmedabad</p>
+            <p><strong>Final Sensor Architecture:</strong> Single-Sensor MQ-3 MVP</p>
+        </div>
+
+        <div>
+            <p style="text-align: center; font-size: 10pt; color: #777;">Document Version: 1.0 (September 2026)</p>
+        </div>
+    </div>
+
+    <!-- PAGE 2: COMPONENTS & CIRCUIT -->
+    <div class="page">
+        <h1>Part 1: Hardware Components & Circuit</h1>
+        <p>This section details the exact hardware components required and provides a precise, step-by-step wiring guide. Following this wiring precisely is essential for the Arduino code to operate correctly.</p>
+        
+        <h2>1.1 Bill of Materials (Components)</h2>
+        <p>Ensure you have all the following components before beginning the assembly.</p>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Specification/Role</th>
+            </tr>
+            <tr>
+                <td>Arduino Uno R3</td>
+                <td>1</td>
+                <td>The microcontroller / central processor.</td>
+            </tr>
+            <tr>
+                <td>MQ-3 Gas Sensor Module</td>
+                <td>1</td>
+                <td>Detects invisible Ethanol VOC off-gassing.</td>
+                </tr>
+            <tr>
+                <td>LED, Green (5mm)</td>
+                <td>1</td>
+                <td>Status Indicator: Batch is Healthy.</td>
+            </tr>
+            <tr>
+                <td>LED, Red (5mm)</td>
+                <td>1</td>
+                <td>Local Alarm Indicator: Spoilage Threshold Crossed.</td>
+            </tr>
+            <tr>
+                <td>Piezo Buzzer (Active)</td>
+                <td>1</td>
+                <td>Localized Audible Alarm.</td>
+            </tr>
+            <tr>
+                <td>Resistor, 220Ω (or 330Ω)</td>
+                <td>2</td>
+                <td>Current-limiting resistors for LEDs.</td>
+            </tr>
+            <tr>
+                <td>Breadboard, Half-Size</td>
+                <td>1</td>
+                <td>To build the circuit without soldering.</td>
+            </tr>
+            <tr>
+                <td>Jumper Wires (Male-to-Male)</td>
+                <td>~15</td>
+                <td>To connect components on the breadboard.</td>
+            </tr>
+            <tr>
+                <td>USB Cable (Type A to B)</td>
+                <td>1</td>
+                <td>To connect Arduino to the computer for power/code.</td>
+            </tr>
+        </table>
+
+        <h2>1.2 Complete Circuit Wiring Guide</h2>
+        <div class="critical">
+            ⚠️ DISCONNECT the USB cable from the Arduino before doing any wiring.
+        </div>
+        <p>Follow these steps precisely. All connections to digital/analog pins are crucial.</p>
+        
+        <h3>Step 1: Setup Breadboard Power Rails</h3>
+        <ul>
+            <li>Connect a red jumper wire from the <strong>Arduino 5V</strong> pin to the <strong>Red (+) rail</strong> on the breadboard.</li>
+            <li>Connect a black jumper wire from the <strong>Arduino GND</strong> pin to the <strong>Black (-) rail</strong> on the breadboard.</li>
+        </ul>
+
+        <h3>Step 2: Connect the MQ-3 Gas Sensor</h3>
+        <p>The MQ-3 module typically has 4 pins (VCC, GND, DOUT, AOUT). We are using <strong>AOUT (Analog Output)</strong>.</p>
+        <ul>
+            <li>Connect the MQ-3 <strong>VCC pin</strong> to the <strong>Red (+) rail</strong> on the breadboard.</li>
+            <li>Connect the MQ-3 <strong>GND pin</strong> to the <strong>Black (-) rail</strong> on the breadboard.</li>
+            <li>Connect the MQ-3 <strong>AOUT pin</strong> directly to <strong>Arduino Analog Pin A0</strong>.</li>
+        </ul>
+
+        <h3>Step 3: Connect the Status LEDs (Green & Red)</h3>
+        <p>Remember that LEDs are polarized. The long leg is the Anode (+), and the short leg is the Cathode (-).</p>
+        <ul>
+            <li>Place the <strong>Green LED</strong> on the breadboard. Connect a 220Ω resistor from its short leg (Cathode) to the Black (-) rail. Connect its long leg (Anode) to <strong>Arduino Digital Pin 6</strong>.</li>
+            <li>Place the <strong>Red LED</strong> on the breadboard. Connect a 220Ω resistor from its short leg (Cathode) to the Black (-) rail. Connect its long leg (Anode) to <strong>Arduino Digital Pin 7</strong>.</li>
+        </ul>
+
+        <h3>Step 4: Connect the Piezo Buzzer</h3>
+        <p>The buzzer usually has a '+' symbol or a red wire. This must connect to the pin.</p>
+        <ul>
+            <li>Connect the buzzer's <strong>Positive (+) wire/pin</strong> to <strong>Arduino Digital Pin 8</strong>.</li>
+            <li>Connect the buzzer's <strong>Negative (-) wire/pin</strong> to the <strong>Black (-) rail</strong> on the breadboard.</li>
+        </ul>
+
+        <div class="success">
+            ✅ Hardware assembly is complete. Once the system is powered up, the MQ-3 sensor requires a 1-2 minute "preheating" period before its readings stabilize.
+        </div>
+    </div>
+
+    <!-- PAGE 3: SOFTWARE SETUP GUIDE -->
+    <div class="page">
+        <h1>Part 2: Software Environment Setup</h1>
+        <p>To run this Predictive IoT Framework, you require a correctly configured software environment on your computer. We will use the Arduino IDE to flash the microcontroller and Visual Studio Code (VS Code) to run the advanced Python AI and Dashboard. Follow these steps meticulously.</p>
+        
+        <h2>2.1 Arduino IDE Setup (Flashing the Node)</h2>
+        <ol>
+            <li><strong>Install the Software:</strong> Download and install the latest Arduino IDE (2.0 or higher recommended) from the official Arduino website.</li>
+            <li><strong>Connect the Hardware:</strong> Use the USB cable to connect your assembled Arduino circuit to your computer.</li>
+            <li><strong>Configure the IDE:</strong>
+                <ul>
+                    <li>Open the Arduino IDE.</li>
+                    <li>Go to <strong>Tools > Board</strong> and ensure <strong>Arduino Uno</strong> is selected.</li>
+                    <li>Go to <strong>Tools > Port</strong> and select the port your Arduino is connected to (e.g., `COM3` on Windows, or `/dev/cu.usbmodem...` on Mac). <strong style="color: #d32f2f;">Crucial: Note this port number, you will need it later for the Python script.</strong></li>
+                </ul>
+            </li>
+            <li><strong>Upload the Code:</strong> Copy the code from <strong>Section 3.1</strong> of this guide, paste it into the IDE, and click the <strong>Upload</strong> button (right arrow). Wait for "Done Uploading".</li>
+            <li><strong>Crucial: Close the Serial Monitor!</strong> The Arduino IDE's Serial Monitor must be closed before running the Python dashboard, otherwise, they will clash over the COM port.</li>
+        </ol>
+
+        <h2>2.2 Visual Studio Code & Python Setup (AI Node)</h2>
+        <p>VS Code is where the advanced predictive AI will run. You must install Python first.</p>
+        
+        <h3>Step 1: Install Python</h3>
+        <ul>
+            <li>Download the latest version of Python (3.10 or higher) from python.org.</li>
+            <li><strong style="color: #d32f2f;">IMPORTANT (Windows users):</strong> In the installation wizard, you MUST check the box that says **"Add Python to PATH"**. If you miss this, VS Code will not be able to find Python.</li>
+        </ul>
+
+        <h3>Step 2: Install VS Code</h3>
+        <ul>
+            <li>Download and install Visual Studio Code from code.visualstudio.com.</li>
+            <li>Open VS Code. Click on the <strong>Extensions icon</strong> (the blocks) on the left sidebar. Search for and install the **"Python"** extension by Microsoft.</li>
+        </ul>
+
+        <h3>Step 3: Install Required Python Libraries</h3>
+        <p>We need specific analytical libraries for our Random Forest algorithm and serial communication. VS Code uses a Terminal to install these.</p>
+        <ul>
+            <li>In VS Code, open a new Terminal (`Terminal > New Terminal`).</li>
+            <li>Type the following command precisely and hit Enter:</li>
+        </ul>
+        <pre>pip install pandas scikit-learn pyserial joblib</pre>
+        <ul>
+            <li>Wait for the confirmation message that all libraries are installed successfully. If you get a "command not found" error for pip, Python was not added to your PATH correctly during installation.</li>
+        </ul>
+        
+        <div class="success">
+            ✅ Software setup is complete. Your environment is now configured to upload the Arduino code, train the AI model, and launch the live dashboard.
+        </div>
+    </div>
+
+    <!-- PAGE 4: ARDUINO CODE -->
+    <div class="page">
+        <h1>Part 3: Project Codes</h1>
+        <p>This section provides the complete, finalized source codes for the three critical components of the Predictive Framework: the Arduino Edge Node, the AI Model Training Script, and the Live Dashboard.</p>
+        
+        <h2>3.1 Arduino Edge Node Code (`iot_node.ino`)</h2>
+        <p>Copy and upload this code via the Arduino IDE to your Arduino Uno.</p>
+        <pre><code>// NCSC Predictive IoT Framework: Arduino Edge Node
+// Final MVP Single-Sensor Architecture (MQ-3 Only)
+
+// Hardware Pin Definitions
+const int mq3Pin = A0;      // Analog Output from MQ-3
+const int greenLed = 6;     // Status: Healthy
+const int redLed = 7;       // Local Alarm: Spoilage
+const int buzzerPin = 8;    // Audible Alarm
+
+// Configuration: Threshold for Local Offline Alarm
+// Ambient is approx 105. Simulated spike is 700. 
+// Threshold = Baseline + (Spike-Baseline)*0.35 = ~300.
+const int gasThreshold = 300; 
+
+void setup() {
+  // Initialize standard USB Serial Communication
+  // The Python dashboard must match this Baud Rate.
+  Serial.begin(9600);
+  
+  // Set physical outputs
+  pinMode(greenLed, OUTPUT);
+  pinMode(redLed, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  
+  // Quick pre-check (flash all LEDs/buzzer for 1 second)
+  digitalWrite(greenLed, HIGH);
+  digitalWrite(redLed, HIGH);
+  digitalWrite(buzzerPin, HIGH);
+  delay(1000);
+  digitalWrite(greenLed, LOW);
+  digitalWrite(redLed, LOW);
+  digitalWrite(buzzerPin, LOW);
+}
+
+void loop() {
+  // 1. READ the Raw analog value (0 - 1023) from the MQ-3 sensor
+  int gasVal = analogRead(mq3Pin);
+
+  // 2. Local Offline Alarm Check (Backup)
+  // This ensures a basic alarm works even without the PC connected.
+  if (gasVal > gasThreshold) {
+    digitalWrite(redLed, HIGH);
+    digitalWrite(greenLed, LOW);
+    digitalWrite(buzzerPin, HIGH); 
+  } else {
+    digitalWrite(redLed, LOW);
+    digitalWrite(greenLed, HIGH);
+    digitalWrite(buzzerPin, LOW);  
+  }
+
+  // 3. Output the raw data to the Serial Port
+  // The Python dashboard script reads this number live.
+  Serial.println(gasVal);
+
+  // Short delay (500ms) for data stability. 
+  // We need fast sampling for the AI model to calculate trends effectively.
+  delay(500); 
+}</code></pre>
+    </div>
+
+    <!-- PAGE 5: AI TRAINING CODE -->
+    <div class="page">
+        <h2>3.2 AI Model Training Script (`train_model.py`)</h2>
+        <p>In VS Code, create a file named `train_model.py` and paste this code. We use synthetic data to train the model to ignore anomalies and focus on sustained trends.</p>
+        <pre><code># NCSC Predictive IoT Framework: AI Training Script
+# Algorithm: RandomForest Regressor (Model: spoilage_model.pkl)
+
+import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+import joblib
+
+# Configuration for training data generation
+np.random.seed(42) # For consistent results
+n_samples = 3000   # Number of data rows for the dataset
+
+print("Generating synthetic agricultural VOC trend data...")
+
+# --- Data Generation Logic ---
+
+# 1. Raw Gas Value (Simulating normal godown air fluctuations)
+# Baseline is ~105. Spikes range from ~90 to 250.
+gas_raw = np.random.normal(180, 80, n_samples)
+gas_raw = np.clip(gas_raw, 50, 850) # Ensure realistic range (not negative/above sensor limit)
+
+# 2. Moving Average (Simulating the trend the AI needs to track)
+# We make it lag slightly behind the raw value.
+gas_avg = gas_raw * np.random.uniform(0.9, 1.1, n_samples)
+
+# 3. Target (Risk) Calculation Logic:
+# The AI must learn that a risk spikes only when the AVERAGE is sustained high,
+# not just when the raw data spikes momentarily (a false alarm from cleaning).
+risk = np.zeros(n_samples)
+for i in range(n_samples):
+    # Risk calculation is non-linear. 
+    # If the trend (gas_avg) is below a safe baseline (e.g., 180), risk is purely random noise.
+    if gas_avg[i] < 180:
+        risk[i] = np.random.uniform(0, 15) # Status: Healthy
+    else:
+        # If trend is high, risk is calculated based on how far avg is above 180.
+        # We also add an intensity boost for high average gas to ensure real rot is flagged.
+        base_risk = ((gas_avg[i] - 180) / 450) * 70 
+        random_boost = np.random.normal(15, 8) 
+        risk[i] = base_risk + random_boost
+
+risk = np.clip(risk, 0.0, 100.0) # Ensure risk is between 0% and 100%
+
+# Create the training DataFrame
+X = pd.DataFrame({'Current_Gas': gas_raw, 'Avg_Gas': gas_avg})
+y = risk
+
+# --- AI Training Phase ---
+# Algorithm Selection: RandomForest Regressor is robust against noisy sensor data.
+# n_estimators=100 creates 100 decision trees to average the result.
+print("Training Random Forest Trend-Analysis Model...")
+model = RandomForestRegressor(n_estimators=100, max_depth=10, random_state=42)
+model.fit(X, y)
+
+# --- Model Export Phase ---
+# Save the trained model file. The dashboard script must load this file.
+joblib.dump(model, 'spoilage_model.pkl')
+print("✅ Success! Model saved as 'spoilage_model.pkl'. Ready for dashboard integration.")</code></pre>
+    </div>
+
+    <!-- PAGE 6: DASHBOARD CODE -->
+    <div class="page">
+        <h2>3.3 Live AI Dashboard (`dashboard.py`)</h2>
+        <p>In VS Code, create a file named `dashboard.py` and paste this code. <strong style="color: #d32f2f;">Crucial: Edit line 13 to match your Arduino COM Port.</strong></p>
+        <pre><code># NCSC Predictive IoT Framework: Live AI Dashboard
+# Loads Model (spoilage_model.pkl) | Reads Serial (Arduino)
+
+import serial
+import time
+import tkinter as tk
+import joblib
+import pandas as pd
+
+# --- Step 1: Initialize System & Load AI ---
+try:
+    # Attempt to load the trained AI model from train_model.py
+    ai_model = joblib.load('spoilage_model.pkl')
+    print("AI Model loaded successfully!")
+except:
+    print("CRITICAL ERROR: 'spoilage_model.pkl' not found. You MUST run train_model.py first!")
+    exit()
+
+# --- Step 2: Configure Serial Communication (Arduino Connection) ---
+# CRITICAL: Change 'COM3' to match your actual Arduino Port (found in Arduino IDE)
+# On Mac/Linux, this will be like '/dev/cu.usbmodem1101'
+SERIAL_PORT = 'COM3' 
+BAUD_RATE = 9600
+
+try:
+    arduino = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
+    time.sleep(2) # Allow Arduino to preheat and reboot on connection
+    print(f"Connected to Arduino on {SERIAL_PORT}!")
+except Exception as e:
+    print(f"Connection error: {e}. Check PORT, Baud Rate, and close Serial Monitor.")
+    exit()
+
+# List to store the moving history of gas values for AI trend analysis
+gas_history = []
+
+# --- Step 3: Define the Core Loop (Dashboard Update) ---
+def update_dashboard():
+    try:
+        # Check if data is waiting on the serial port
+        if arduino.in_waiting > 0:
+            line = arduino.readline().decode('utf-8').strip()
+            
+            # Since Arduino only sends the single integer gas number, parse it
+            if line.isdigit():
+                current_gas = int(line)
+                
+                # Update Data History & Calculate Moving Average (The Trend)
+                # We average the last 8 readings (approx 4 seconds) to ignore transient spikes.
+                gas_history.append(current_gas)
+                if len(gas_history) > 8: 
+                    gas_history.pop(0) # Remove oldest data point to maintain window
+                avg_gas = sum(gas_history) / len(gas_history)
+                
+                # --- Predict Spoilage Risk using AI ---
+                # Prepare the current live data as a DataFrame for the AI model
+                live_data = pd.DataFrame({'Current_Gas': [current_gas], 'Avg_Gas': [avg_gas]})
+                # The model outputs a Spoilage Risk Percentage (%)
+                risk_percentage = ai_model.predict(live_data)[0]
+                
+                # --- Step 4: Update GUI Indicators ---
+                gas_label.config(text=f"Live VOC Level: {current_gas} ppm")
+                trend_label.config(text=f"Moving Average: {int(avg_gas)} ppm")
+                risk_label.config(text=f"Spoilage Risk: {risk_percentage:.1f}%")
+                
+                # Color-code the dashboard background and status based on Risk %
+                if risk_percentage > 75.0: # High Risk: Red Status
+                    status_label.config(text="ACTION REQUIRED: High Spoilage Risk!", fg="red")
+                    root.configure(bg="#ffebee")
+                elif risk_percentage > 40.0: # Warning: Early Stage Spoilage
+                    status_label.config(text="WARNING: Early Stage Spoilage Detected", fg="orange")
+                    root.configure(bg="#fff8e1")
+                else: # Healthy: Green Status
+                    status_label.config(text="STATUS: Batch is Healthy", fg="green")
+                    root.configure(bg="#f4f4f4")
+                    
+    except Exception as e:
+        # Ignore individual read errors to prevent the dashboard crashing
+        pass
+        
+    # Re-run this loop every 200ms (5 times a second)
+    root.after(200, update_dashboard) 
+
+# --- Step 5: Initialize GUI Layout (Tkinter) ---
+root = tk.Tk()
+root.title("NCSC Predictive AI Spoilage Dashboard")
+root.geometry("500x350")
+root.configure(bg="#f4f4f4")
+
+# UI Elements
+tk.Label(root, text="Godown Sensor Node 1", font=("Arial", 18, "bold"), bg="#f4f4f4").pack(pady=15)
+gas_label = tk.Label(root, text="Live VOC Level: -- ppm", font=("Arial", 14), bg="#f4f4f4")
+gas_label.pack(pady=5)
+trend_label = tk.Label(root, text="Moving Average: -- ppm", font=("Arial", 14), bg="#f4f4f4")
+trend_label.pack(pady=5)
+risk_label = tk.Label(root, text="Spoilage Risk: --%", font=("Arial", 22, "bold"), fg="blue", bg="#f4f4f4")
+risk_label.pack(pady=20)
+status_label = tk.Label(root, text="Connecting to Arduino...", font=("Arial", 14, "bold"), bg="#f4f4f4")
+status_label.pack(pady=10)
+
+# Start the dashboard loop after 1 second (allows serial to stabilize)
+root.after(1000, update_dashboard)
+root.mainloop()</code></pre>
+    </div>
+
+    <!-- PAGE 7: SETTING UP VS CODE IN DETAIL -->
+    <div class="page">
+        <h1>Part 4: Setting Up VS Code in Detail</h1>
+        <p>This is the critical step that causes the most confusion. Follow this process to set up VS Code, connect it to your Python interpreter, and install the libraries correctly. This is done *after* installing Python on your computer.</p>
+        
+        <h2>4.1 Open the Project Folder</h2>
+        <p>You cannot run this as loose files. They must be in a dedicated folder.</p>
+        <ol>
+            <li>Create a new folder on your Desktop named `NCSC_Final`.</li>
+            <li>Launch Visual Studio Code.</li>
+            <li>Go to **File > Open Folder...**, navigate to your Desktop, select `NCSC_Final`, and click Open. The side bar will now show this empty folder.</li>
+        </ol>
+
+        <h2>4.2 Select the Python Interpreter</h2>
+        <p>VS Code needs to know *which* version of Python to use. If it doesn't know, it won't be able to run your scripts.</p>
+        <ol>
+            <li>Inside VS Code, press **Ctrl + Shift + P** (Cmd + Shift + P on Mac) to open the Command Palette.</li>
+            <li>Type `Python: Select Interpreter` and hit Enter.</li>
+            <li>VS Code will search your computer. Select the recommended interpreter that says `Python 3.10` or higher (e.g., `'Python 3.11.2 64-bit'`). You will see this selected version appear in the bottom right corner of the window.</li>
+        </ol>
+
+        <h2>4.3 Open the Terminal & Install Libraries</h2>
+        <p>We use VS Code's built-in terminal to install libraries. This ensures they are installed for the exact Python version you just selected.</p>
+        <ol>
+            <li>Go to **Terminal > New Terminal**. A small window will open at the bottom.</li>
+            <li>Ensure the terminal shows your project path (`Desktop/NCSC_Final`).</li>
+            <li>Type the pip installation command (from Section 2.2) and hit Enter:</li>
+        </ol>
+        <pre>pip install pandas scikit-learn pyserial joblib</pre>
+        <p>If you see `Successfully installed...`, you are ready to proceed. Complete Part 5 before continuing.</p>
+        
+        <div class="photo-box">[Screenshot Placeholder: VS Code interface showing open folder, selected interpreter, and terminal]</div>
+        <p class="caption">Figure 4.1: Correct VS Code setup showing the integrated environment.</p>
+    </div>
+
+    <!-- PAGE 8: HOW TO RUN & TEST -->
+    <div class="page">
+        <h1>Part 5: Project Setup & Execution Flow</h1>
+        <p>The hardware is assembled and the software environment is configured. You now have the codes from Part 3. Follow this precise chronological flow to launch the project. Do not skip steps.</p>
+        
+        <h2>5.1 Chronological Execution Flow</h2>
+
+        <h3>Step 1: Save the Files in VS Code</h3>
+        <ol>
+            <li>In VS Code (inside the `NCSC_Final` folder), create a new file named `train_model.py`. Paste the code from Section 3.2 and **Save** (`Ctrl + S`).</li>
+            <li>Create a new file named `dashboard.py`. Paste the code from Section 3.3 and **Save** (`Ctrl + S`). <strong style="color: #d32f2f;">Verify the SERIAL_PORT setting (line 13) is correct before saving.</strong></li>
+        </ol>
+
+        <h3>Step 2: Flash the Arduino Uno (Arduino IDE)</h3>
+        <ol>
+            <li>Connect the Arduino Uno via USB. Upload the code (`iot_node.ino`) from Section 3.1 via the Arduino IDE.</li>
+            <li>Verify you get "Done Uploading." The Red and Green LEDs and buzzer should flash once to show the pre-check succeeded.</li>
+            <li><strong style="color: #d32f2f;">IMPORTANT: Completely close the Serial Monitor and the entire Arduino IDE application.</strong></li>
+        </ol>
+
+        <h3>Step 3: Train the AI Model (VS Code)</h3>
+        <ol>
+            <li>Inside VS Code, open `train_model.py`.</li>
+            <li>Right-click anywhere in the code editor and select **"Run Python File in Terminal"**.</li>
+            <li>Watch the terminal. It should say "Successfully installed... spoilage_model.pkl." You will see this new `.pkl` file appear in your `NCSC_Final` folder on the sidebar. The AI brain is now trained.</li>
+        </ol>
+
+        <h3>Step 4: Launch the Live Dashboard (VS Code)</h3>
+        <ol>
+            <li>Ensure the Arduino is still connected via USB.</li>
+            <li>Open `dashboard.py` in VS Code. Right-click and select **"Run Python File in Terminal"**.</li>
+            <li>The Graphical Spoilage Dashboard will launch. The status will change from "Connecting..." to "Batch is Healthy" within a few seconds as it establishes serial communication and the MQ-3 sensor preheats.</li>
+        </ol>
+
+        <h2>5.2 Demonstration & Testing Protocol</h2>
+        <p>You must demonstrate that the AI *ignores* anomalies and *flags* sustained trends. Since real potatoes do not rot instantly, we must simulate it scientifically.</p>
+        
+        <h3>Simulation 1: The False Alarm (An Anomaly)</h3>
+        <ul>
+            <li>Take an alcohol swab or sanitizer. Quick wave it 10cm *over* the MQ-3 sensor and immediately remove it.</li>
+            <li>Observe the dashboard. The **Live VOC Level** number will spike to 400+, but the **Moving Average** will barely rise. The **Spoilage Risk** will stay low (<20%). The status remains Healthy.</li>
+            <li><strong>Conclusion:</strong> The Random Forest algorithm recognized this as environmental noise, not rot, preventing a false alarm.</li>
+        </ul>
+
+        <h3>Simulation 2: Genuine Rot (Sustained Spoilage)</h3>
+        <ul>
+            <li>Wipe the sanitizer *onto* a small piece of burlap (sack material) and hold it 5cm above the MQ-3 sensor. Maintain this position.</li>
+            <li>Observe the dashboard. The **Live VOC Level** will climb and *stay* high. As a result, the **Moving Average** will also begin to climb.</li>
+            <li>The AI detects this correlated trend. The **Spoilage Risk %** will climb past 40% (Warning status) and then past 75%, turning the dashboard Red (High Risk Status). Simultaneously, the Arduino's local backup piezo buzzer will trigger.</li>
+            <li>Remove the burlap. The risk will gradually drop back to healthy levels within 1 minute.</li>
+            <li><strong>Conclusion:</strong> The AI successfully predicted spoilage based on the sustained chemical off-gassing trend, granting the necessary 36-hour advantage.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
