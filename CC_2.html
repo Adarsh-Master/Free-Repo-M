@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCSC Final Posters - LANDSCAPE VERSION (Scrapbook Style)</title>
+<style>
+    body {
+        font-family: 'Comic Sans MS', 'Arial Black', sans-serif; /* Mimicking thick marker handwriting */
+        background-color: #333;
+        color: #000;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    @media print {
+        body { background-color: #fff; padding: 0; }
+        .page { page-break-after: always; box-shadow: none !important; margin: 0 0 10mm 0 !important; width: 100% !important; height: auto !important; border: none !important;}
+        .instructions-panel { display: none; }
+        @page { size: landscape; margin: 10mm; }
+    }
+
+    .instructions-panel {
+        background-color: #e3f2fd;
+        border: 2px solid #2196f3;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+    }
+
+    .page {
+        width: 100%;
+        max-width: 1100px; /* Wider for landscape */
+        margin: 0 auto 40px auto;
+        background-color: #FFFFE0; /* Light yellow chart paper background */
+        border: 2px solid #000;
+        padding: 30px;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Page 2 will be white chart paper for variety */
+    .page-white { background-color: #FFFFFF; }
+
+    /* Bold Marker Headings */
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 2.2em;
+        margin: 0 0 20px 0;
+        text-shadow: 2px 2px 0px #ccc;
+    }
+
+    .marker-box {
+        border: 4px solid;
+        padding: 15px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        box-shadow: 3px 3px 0px #000;
+        flex-grow: 1; /* For flex layouts */
+    }
+
+    .red-border { border-color: #D50000; }
+    .blue-border { border-color: #2962FF; }
+    .green-border { border-color: #00C853; }
+    .orange-border { border-color: #FF6D00; }
+
+    /* Flowchart Elements - Revised for Landscape */
+    .flowchart-container-horizontal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        width: 100%;
+    }
+    .flow-box {
+        border: 3px solid #000;
+        padding: 10px;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 2px 2px 0px #000;
+        width: 15%; /* Smaller for horizontal */
+        background-color: #fff;
+    }
+    .flow-arrow-horizontal {
+        font-size: 24px;
+        font-weight: bold;
+        color: #D50000;
+        margin: 0 10px;
+    }
+
+    /* System Workflow Flowchart (Page 3) - Left to Right */
+    .workflow-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        margin-top: 15px;
+    }
+    .workflow-box {
+        border: 3px solid #000;
+        padding: 10px;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 2px 2px 0px #000;
+        width: 16%; 
+        font-size: 0.9em;
+    }
+
+    /* Photo placeholders */
+    .photo-placeholder {
+        background-color: #e0e0e0;
+        border: 2px dashed #666;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #666;
+        font-family: Arial;
+        font-size: 0.9em;
+        margin: 5px;
+        box-sizing: border-box;
+    }
+
+    .list-item {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+    }
+    .highlight { background-color: #FFFF00; padding: 0 5px; }
+
+</style>
+</head>
+<body>
+
+<div class="instructions-panel">
+    <strong>🎨 LANDSCAPE AESTHETIC GUIDE (Based on NCSC Samples):</strong><br>
+    - <strong>Handwriting:</strong> Write with thick, colorful sketch pens (Red, Blue, Green, Black).<br>
+    - <strong>Layout:</strong> Use the wider space. The Work Plan and System Workflow are now horizontal.<br>
+    - <strong>Empty Space:</strong> As mentioned, DO NOT leave empty spaces. Paste photos of the team working in any gap.<br>
+    - <strong>Print Settings:</strong> You MUST select **Landscape** in your printer settings to save this correctly!
+</div>
+
+<!-- ================= CHART 1: Identity & Objectives (Horizontal Layout) ================= -->
+<div class="page">
+    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+        <div class="photo-placeholder" style="width: 100px; height: 100px; border-radius: 50%;">Draw NCSC<br>Logo Here</div>
+        <div style="margin: 0 20px;">
+            <h1 style="color: #000; margin: 0; font-size: 1.8em;">PREDICTIVE IOT FRAMEWORK FOR EARLY POST-harvest spoilage detection</h1>
+            <h2 style="text-align: center; color: #444; margin: 5px 0 0 0; font-size: 1.2em;">Army Public School, Ahmedabad</h2>
+        </div>
+        <div class="photo-placeholder" style="width: 100px; height: 100px; border-radius: 50%;">Draw School<br>Logo Here</div>
+    </div>
+
+    <div style="display: flex; gap: 20px; align-items: stretch; margin-top: 20px;">
+        <div class="marker-box blue-border" style="width: 50%;">
+            <h2 style="margin: 0 0 10px 0; color: #000;">Project Identity</h2>
+            <div class="list-item"><strong>Theme:</strong> Science for Sustainable Living</div>
+            <div class="list-item"><strong>Sub-Theme:</strong> Food, Agriculture and Health</div>
+            <div class="list-item"><strong>Group Leader:</strong> Adarsh Mishra</div>
+            <div class="list-item"><strong>Co-Worker:</strong> Ranveer</div>
+            <div class="list-item"><strong>Guide Teacher:</strong> Mrs. Sonika Bohra</div>
+            <div class="list-item"><strong>District/State:</strong> Ahmedabad, Gujarat</div>
+        </div>
+
+        <div class="marker-box green-border" style="width: 50%;">
+            <h1 style="color: #D50000; font-size: 1.6em; text-decoration: underline; margin: 0 0 10px 0;">OBJECTIVES</h1>
+            <p class="list-item">✅ To mitigate massive post-harvest crop losses.</p>
+            <p class="list-item">✅ To detect <span class="highlight">Ethanol & VOC gases</span> from anaerobic fermentation.</p>
+            <p class="list-item">✅ To intercept spoilage 28 to 36 hours BEFORE visual decay.</p>
+            <p class="list-item">✅ To build an ultra-low-cost (₹850) AI sensor node.</p>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 15px;">
+        <div class="photo-placeholder" style="width: 40%; height: 120px; display: inline-flex;">Paste Photo: You & Ranveer discussing the project</div>
+        <div class="photo-placeholder" style="width: 40%; height: 120px; display: inline-flex;">Paste Photo: Large godown cluster near Airport Circle</div>
+    </div>
+</div>
+
+<!-- ================= CHART 2: Work Plan & Map (Horizontal Layout) ================= -->
+<div class="page page-white">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+        <h1 style="color: #D50000; background-color: #FFFF00; border: 4px solid #000; display: inline-block; padding: 10px; margin: 0;">WORK PLAN</h1>
+        <h2 style="font-size: 1.1em; margin: 0; color: #666;">*Horizontal Flow: Left to Right</h2>
+    </div>
+
+    <div class="flowchart-container-horizontal">
+        <div class="flow-box" style="background-color: #FFCCBC;">Group & Topic Selection</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="flow-box" style="background-color: #C5CAE9;">Mandi Visit (Kalupur)</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="flow-box" style="background-color: #FFF9C4;">Problem Identified: Visual Fails</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="flow-box" style="background-color: #C8E6C9;">Solution found: "Smelling"</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="flow-box" style="background-color: #E1BEE7;">Coding AI (Random Forest)</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="flow-box" style="background-color: #FFCDD2; border-color: #D50000; color: #D50000;">Successful Predictor!</div>
+    </div>
+
+    <div style="display: flex; gap: 20px; align-items: stretch; margin-top: 30px;">
+        <div class="marker-box orange-border" style="width: 60%;">
+            <h1 style="color: #2962FF; font-size: 1.6em; text-decoration: underline; margin: 0 0 10px 0;">MAP OF STUDY AREA</h1>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <div class="photo-placeholder" style="width: 60%; height: 200px;">Draw/Paste Map of Ahmedabad marking Kalupur, Asarwa, Airport Godowns</div>
+                <div style="width: 35%; font-size: 1em;">
+                    <strong>Mandis Visited:</strong><br>
+                    1. Kalupur APMC (Grain)<br>
+                    2. Naroda Road (Potatoes)<br>
+                    3. Asarwa (Cold Storage)<br><br>
+                    <em>*Observed poor ventilation causes rapid off-gassing.</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="marker-box blue-border" style="width: 35%; flex-grow: 0;">
+            <h2 style="margin: 0 0 10px 0; text-align: center;">Team at Work</h2>
+            <div class="photo-placeholder" style="width: 100%; height: 180px;">Paste photos of you and Ranveer taking notes in Kalupur</div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= CHART 3: System Workflow & Gallery (Wide Layout) ================= -->
+<div class="page">
+    <h1 style="color: #00C853; border-bottom: 4px dashed #000; padding-bottom: 10px;">SYSTEM WORKFLOW & AI PIPELINE</h1>
+
+    <div class="workflow-container">
+        <div class="workflow-box" style="background-color: #FFCDD2; border-color: #D50000; height: 100px;">1. SPOILING SACK<br>releases Ethanol</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="workflow-box" style="background-color: #F8BBD0; height: 100px;">2. MQ-3 SENSOR<br>detects gas cluster</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="workflow-box" style="background-color: #B2EBF2; height: 100px;">3. ARDUINO<br>processes data</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="workflow-box" style="background-color: #E1BEE7; height: 100px;">4. PYTHON AI<br>analyzes Moving Average</div>
+        <div class="flow-arrow-horizontal">➜</div>
+        <div class="workflow-box" style="background-color: #FFF9C4; border-color: #FF6D00; color: #FF6D00; height: 100px;">5. SPOILAGE RISK ALERT!<br>(Red Screen + Buzzer)</div>
+    </div>
+
+    <div style="display: flex; gap: 20px; align-items: center; margin-top: 30px;">
+        <div style="width: 30%; font-size: 1.1em; color: #000;">
+            <strong>The AI Edge:</strong> Instead of simple thresholds, we use <span class="highlight">Random Forest Regression</span> to identify long-term gas trends, ignoring short, false spikes (like floor cleaners).
+        </div>
+        <div class="marker-box green-border" style="width: 65%; background-color: #FFF3E0; flex-grow: 0;">
+            <h1 style="color: #FF6D00; background-color: #000; color: #fff; padding: 5px; text-align: center; font-size: 1.5em; margin-bottom: 10px;">PHOTO GALLERY</h1>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 5px;">
+                <div class="photo-placeholder" style="width: 23%; height: 100px; font-size: 0.8em;">Soldering Arduino</div>
+                <div class="photo-placeholder" style="width: 23%; height: 100px; font-size: 0.8em;">Testing MQ-3 sensor</div>
+                <div class="photo-placeholder" style="width: 23%; height: 100px; font-size: 0.8em;">AI Model output (.pkl)</div>
+                <div class="photo-placeholder" style="width: 23%; height: 100px; font-size: 0.8em;">Final system box</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= CHART 4: Materials, Math & Solution (Wide Layout) ================= -->
+<div class="page page-white">
+    <div style="display: flex; gap: 20px; align-items: stretch;">
+        <div class="marker-box blue-border" style="width: 45%;">
+            <h1 style="color: #2962FF; font-size: 1.6em; text-decoration: underline; margin: 0 0 10px 0;">MATERIALS REQUIRED</h1>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div style="text-align: center; width: 30%;">
+                    <div class="photo-placeholder" style="width: 70px; height: 70px; border-radius: 50%;">Sketch<br>Arduino</div>
+                    <span style="font-size: 0.8em;">Arduino Uno</span>
+                </div>
+                <div style="text-align: center; width: 30%;">
+                    <div class="photo-placeholder" style="width: 70px; height: 70px; border-radius: 50%;">Sketch<br>MQ-3</div>
+                    <span style="font-size: 0.8em;">MQ-3 Sensor</span>
+                </div>
+                <div style="text-align: center; width: 30%;">
+                    <div class="photo-placeholder" style="width: 70px; height: 70px; border-radius: 50%;">Tape real<br>LED here!</div>
+                    <span style="font-size: 0.8em;">Alerts</span>
+                </div>
+            </div>
+            <p style="text-align: center; font-weight: bold; margin-top: 10px; color: #D50000; background-color: #FFF9C4;">Total Prototype Cost = ₹850</p>
+        </div>
+
+        <div class="marker-box green-border" style="width: 50%;">
+            <h1 style="color: #00C853; font-size: 1.6em; text-decoration: underline; margin: 0 0 10px 0;">SCALABILITY MATH</h1>
+            <p style="font-size: 1em; margin: 0;">MQ-3 Sensor Radius (indoor aisle) = ~2.2m</p>
+            <p style="font-size: 1.3em; font-weight: bold; background-color: #B2EBF2;">AREA COVERED = πr² = 3.14 x (2.2)² = ~150 sq. ft.</p>
+            <p style="font-size: 1em; margin: 0;">Standard Sack (1.5 sq ft shelf area)</p>
+            <p style="font-size: 1.1em; background-color: #C8E6C9;">150 sq ft ÷ 1.5 sq ft = <span style="color: #D50000; font-weight: bold;">100 SACKS PER SENSOR!</span></p>
+            <em style="font-size: 0.9em; color: #666;">High ROI: A ₹850 device secures ₹1,00,000+ stock.</em>
+        </div>
+    </div>
+
+    <div style="margin-top: 25px;">
+        <h1 style="color: #D50000; background-color: #FFFF00; border: 4px solid #000; padding: 10px; margin: 0 0 10px 0; font-size: 1.8em;">CONCLUSION & ULTIMATE SOLUTION</h1>
+        <div class="marker-box red-border" style="font-size: 1.1em; font-weight: bold; margin: 0;">
+            <p style="margin: 5px 0;">✅ Validated: Low-cost sensors can detect invisible chemical spoilage markers.</p>
+            <p style="margin: 5px 0;">✅ Validated: AI successfully filters false alarms (floor cleaners).</p>
+            <p style="margin: 5px 0; color: #D50000; background-color: #FFF3E0;">✅ SOLUTION: We give managers a <span class="highlight">36-HOUR (1.5 day) Head-Start</span> to isolate rotting sacks before the whole batch ruins, preventing massive waste and protecting food security!</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
