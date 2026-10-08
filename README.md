@@ -56,3 +56,69 @@ Presentation: The children under this category will be allowed to present their 
 
 Time: Although we have specified time of 8 minutes allotted for oral presentations, for the children with disability that might be relaxed. Depending upon the number of projects the time allocation will be decided and notified.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 1. Refined Transcript (Subtitle Format)
+
+Good morning everyone. My name is Adarsh Mishra, and this is my teammate Ranveer, and we are representing Army Public School, Ahmedabad.
+
+We have our main theme as Innovation and Technology, and our sub-theme is Food, Agriculture, and Health. So, what is the first thing which comes to your mind when we talk about these three words? Of course, it's the food that we eat.
+
+Are you 100% sure that whatever food we are consuming is rot-free? How can you be that much sure? Food is taking a long path from harvested fields till our plate via these agricultural storage houses, which we call godowns. You see, these godowns are a place where a large chunk of food is stored for a large amount of time in just a compact area. So, what are the odds of just a handful of grain being spoiled or rotten? It's very, very high.
+
+If only a handful of grain spoils and there is no one to take account of that or take a look at that, it will trigger a chain reaction. That would eventually end up rotting the whole agricultural storage area. In this scenario, only two things could happen. First, the owner is going to suffer a lot of loss—of money, food, and time. Or, the owner is going to play smart and just let that rotten food flood into the market. And what will happen? That will come to our plate, we will consume it, and we will have health issues that are eventually not good for us.
+
+So, what could we do here? To find the answer, we went to several agricultural storage areas in our locality. We asked their workers and owners a simple question: What is the means that they are following to detect if there is any kind of spoilage happening? They said that they are just seeing it and detecting if there is spoiled food. We found that this is not the way it should be done. This is not a good practice, and we have to definitely change it. But why?
+
+Whenever we are seeing any food object and identifying the spots, it's already too late. The spoilage has already spread; the chain reaction has already triggered. So, we are shifting our focus from seeing to smelling.
+
+But how and why? We have conducted research showing that whenever any food grain gets spoiled, the initial fermentation process starts at a cellular level. In that process, volatile ethanol gases are released. Those gases are going to be a main highlight. Those gases are released 24 to 38 hours before the physical spoilage happens. If we could detect where the spoilage is going to happen, we can just get that handful of grain out of that area, and the whole godown is secured.
+
+How are we going to do this? For this, we are using an MQ-3 sensor. It is a well-known sensor for detecting gases and smoke. It covers a vast area of 150 square feet, which will be highly economically feasible for a whole godown to set up. It is going to detect those gases two or three days before the actual rot process happens, and it is going to send an alert to the owner and the workers through several means like notifications and buzzers so they can safely remove that piece.
+
+Now let us look at the whole procedure of how we are doing it. First is the sensing part, which the MQ-3 sensor is doing. Now comes the analytical part. Is there going to be a person sitting behind the screen, always looking at the monitor of the MQ-3 sensor and calculating the stuff? No. We are living in an AI era. There is no need for this. We have trained an AI model which is very accurate in this kind of stuff. It will do all the analytics with a Random Forest algorithm, and it will eventually tell the owners that their food is going to spoil a lot before it happens, so please save it.
+
+So, what is the main purpose of making this project? Actually, it's not just about any food grain or any economical fact. It is about ourselves. It is about our health. If we are consuming that bad food, it is not good for our health. Human beings are made to achieve the heights of the universe. There is a lot more to explore for a human being. If we are just stuck with simple problems of our health, then who is going to take these responsibilities? We are given rational thinking to go as high as we can and as deep as we can. If young children are eating this kind of food, how can we assure that they are going to develop a good mind? And with that, how can we assure that our future is secured?
+
+Dear judges and everyone present, this is going to be one of the initial steps, the first spark towards a new revolution. We are not just focusing upon food; food is the basic energy source, and we are focusing upon that. This is going to be the innovation of tomorrow, and for tomorrow. Thank you.
+
+---
+
+### 2. Suggestions for Your Delivery
+
+You have incredible passion and energy, and your grasp of the topic is excellent. Here are a few tweaks to make it even more professional:
+
+* **Pacing and Pauses:** You speak with great momentum, but you need to let your powerful questions land. When you ask, *"Are you 100% sure that whatever food we are consuming is rot-free?"*—pause for two full seconds. Look at the judges. Let them feel the weight of that question before moving on.
+* **Purposeful Gestures:** You naturally use your hands a lot, which shows enthusiasm. However, keeping them constantly in motion can distract from your words. Try to "anchor" your hands (lightly clasped or resting) and only use them to emphasize key moments (like counting off the "Sensing" and "Analytical" phases on your fingers).
+* **Eye Contact:** In a video presentation or live speech, make sure you are looking directly into the camera lens (or the judges' eyes), rather than at the screen or the ceiling when you are thinking. It builds trust and authority.
+* **Minor Vocabulary Tweaks:** Instead of *"small childrens"* say *"young children"* (children is already plural). Instead of *"take a counter of that"*, say *"take account of that"* or *"catch the problem"*.
+
+---
+
+### 3. Transition Lines (Bridging AI and Human Health)
+
+To move smoothly from the highly technical Random Forest AI explanation into your passionate conclusion about human potential, you need a transition that bridges "technology" with "humanity." Here are three options you can use right after you finish talking about the Random Forest algorithm:
+
+**Option 1 (Direct and Impactful):**
+
+> "...and it will eventually tell the owners to save their food before it spoils. **But why did we go through all this effort to build an AI just to watch over grains? Because ultimately, this project isn't just about saving agricultural money. It’s about safeguarding the engine of human progress: our health.** Human beings are made to achieve the heights of the universe..."
+
+**Option 2 (Philosophical):**
+
+> "...so please save it. **With this algorithm, the warehouse is secured autonomously. But let's look at the bigger picture. Why does this technology actually matter? Because food is just our fuel, and human beings are meant to use that fuel to achieve the heights of the universe.** There is a lot more to explore..."
+
+**Option 3 (Short and Punchy):**
+
+> "...and it will eventually tell the owners that their food is going to spoil, so please save it. **So, the AI handles the data, but what is the true purpose of this project? It is not about economics; it is about us.** If we are consuming toxic food, it destroys our health. And human beings are made to achieve the heights of the universe..."
